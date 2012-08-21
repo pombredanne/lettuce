@@ -1,8 +1,8 @@
 .. _contents:
 
-==============================
+##############################
 Lettuce documentation contents
-==============================
+##############################
 
 .. toctree::
    :maxdepth: 3
@@ -22,9 +22,11 @@ Lettuce documentation contents
    reference/languages
    recipes/nose
    recipes/django-lxml
+   dev/index
 
+****************************
 Indices, glossary and tables
-============================
+****************************
 
 * :ref:`genindex`
 * :ref:`modindex`

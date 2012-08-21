@@ -1,5 +1,5 @@
 # lettuce
-> Version 0.1.33 - barium
+> Version 0.2.6 - kryptonite
 
 ## On release names
 
@@ -20,7 +20,6 @@ Lettuce is a [BDD](http://en.wikipedia.org/wiki/Behavior_Driven_Development) too
 5. I personally don't like mixing many languages in small projects. Keeping all in python is better.
 6. I love python, and ever did. But I also ever missed something that make writing tests easier and funnier.
 7. I like [nose](http://code.google.com/p/python-nose/), which is a unittest pythonic framework. However, as the project I work on grows, so do the tests, and it becomes harder to understand them.
-8. [lettuce ladies](http://www.lettuceladies.com/) :)
 
 # Dependencies
 
@@ -99,7 +98,7 @@ how to install lettuce on windows.
 # License
 
     <Lettuce - Behaviour Driven Development for python>
-    Copyright (C) <2010-2011>  Gabriel Falcão <gabriel@nacaolivre.org>
+    Copyright (C) <2010-2012>  Gabriel Falcão <gabriel@nacaolivre.org>
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

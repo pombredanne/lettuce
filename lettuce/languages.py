@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # <Lettuce - Behaviour Driven Development for python>
-# Copyright (C) <2010-2011>  Gabriel Falcão <gabriel@nacaolivre.org>
+# Copyright (C) <2010-2012>  Gabriel Falcão <gabriel@nacaolivre.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -97,4 +97,67 @@ LANGUAGES = {
         'scenario_outline': u'シナリオアウトライン|シナリオテンプレート|テンプレ|シナリオテンプレ',
         'scenario_separator': u'(シナリオ|シナリオアウトライン|シナリオテンプレート|テンプレ|シナリオテンプレ)',
     },
+    'tr': {
+        'examples': u'Örnekler',
+        'feature': u'Özellik',
+        'name': u'Turkish',
+        'native': u'Türkçe',
+        'scenario': u'Senaryo',
+        'scenario_outline': u'Senaryo taslağı|Senaryo Taslağı',
+        'scenario_separator': u'(Senaryo taslağı|Senaryo Taslağı|Senaryo)',
+     },
+     'zh-CN': {
+        'examples': u'例如|场景集',
+        'feature': u'特性',
+        'name': u'Simplified Chinese',
+        'native': u'简体中文',
+        'scenario': u'场景',
+        'scenario_outline': u'场景模板',
+        'scenario_separator': u'(场景模板|场景)',
+    },
+     'zh-TW': {
+        'examples': u'例如|場景集',
+        'feature': u'特性',
+        'name': u'Traditional Chinese',
+        'native': u'繁體中文',
+        'scenario': u'場景',
+        'scenario_outline': u'場景模板',
+        'scenario_separator': u'(場景模板|場景)',
+    },
+    'ru': {
+        'examples': u'Примеры|Сценарии',
+        'feature': u'Функционал',
+        'name': u'Russian',
+        'native': u'Русский',
+        'scenario': u'Сценарий',
+        'scenario_outline': u'Структура сценария',
+        'scenario_separator': u'(Структура сценария|Сценарий)',
+    },
+    'uk': {
+        'examples': u'Приклади|Сценарії',
+        'feature': u'Функціонал',
+        'name': u'Ukrainian',
+        'native': u'Українська',
+        'scenario': u'Сценарій',
+        'scenario_outline': u'Структура сценарію',
+        'scenario_separator': u'(Структура сценарію|Сценарій)',
+    },
+    'it': {
+        'examples': u'Esempi|Scenari|Scenarii',
+        'feature': u'Funzionalità|Funzione',
+        'name': u'Italian',
+        'native': u'Italiano',
+        'scenario': u'Scenario',
+        'scenario_outline': u'Schema di Scenario|Piano di Scenario',
+        'scenario_separator': u'(Schema di Scenario|Piano di Scenario|Scenario)',
+    },
+    'no': {
+        'examples': u'Eksempler',
+        'feature': u'Egenskaper',
+        'name': u'Norwegian',
+        'native': u'Norsk',
+        'scenario': u'Situasjon',
+        'scenario_outline': u'Situasjon Oversikt',
+        'scenario_separator': u'(Situasjon Oversikt|Situasjon)',
+    }
 }

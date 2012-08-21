@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # <Lettuce - Behaviour Driven Development for python>
-# Copyright (C) <2010-2011>  Gabriel Falcão <gabriel@nacaolivre.org>
+# Copyright (C) <2010-2012>  Gabriel Falcão <gabriel@nacaolivre.org>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -39,6 +39,7 @@ Feature: Before and After callbacks all along lettuce
         Given I append "during" to states
 '''
 
+
 def test_world():
     "lettuce.terrain.world can be monkey patched at will"
 
@@ -57,9 +58,11 @@ def test_world():
     set_world()
     test_does_have()
 
+
 def test_after_each_step_is_executed_before_each_step():
     "terrain.before.each_step and terrain.after.each_step decorators"
     world.step_states = []
+
     @before.each_step
     def set_state_to_before(step):
         world.step_states.append('before')
@@ -83,6 +86,7 @@ def test_after_each_step_is_executed_before_each_step():
 
     assert_equals(world.step_states, ['before', 'during', 'after'])
 
+
 def test_after_each_scenario_is_executed_before_each_scenario():
     "terrain.before.each_scenario and terrain.after.each_scenario decorators"
     world.scenario_steps = []
@@ -104,8 +108,9 @@ def test_after_each_scenario_is_executed_before_each_scenario():
 
     assert_equals(
         world.scenario_steps,
-        ['before', 'during', 'after', 'before', 'during', 'after']
+        ['before', 'during', 'after', 'before', 'during', 'after'],
     )
+
 
 def test_after_each_feature_is_executed_before_each_feature():
     "terrain.before.each_feature and terrain.after.each_feature decorators"
@@ -128,8 +133,9 @@ def test_after_each_feature_is_executed_before_each_feature():
 
     assert_equals(
         world.feature_steps,
-        ['before', 'during', 'during', 'after']
+        ['before', 'during', 'during', 'after'],
     )
+
 
 def test_after_each_all_is_executed_before_each_all():
     "terrain.before.each_all and terrain.after.each_all decorators"
@@ -159,6 +165,7 @@ def test_after_each_all_is_executed_before_each_all():
 
     runner = lettuce.Runner('some_basepath')
     CALLBACK_REGISTRY.clear()
+
     @before.all
     def set_state_to_before():
         world.all_steps.append('before')
@@ -178,10 +185,11 @@ def test_after_each_all_is_executed_before_each_all():
 
     assert_equals(
         world.all_steps,
-        ['before', 'during', 'during', 'after']
+        ['before', 'during', 'during', 'after'],
     )
 
     mox.UnsetStubs()
+
 
 def test_world_should_be_able_to_absorb_functions():
     u"world should be able to absorb functions"
@@ -200,6 +208,7 @@ def test_world_should_be_able_to_absorb_functions():
 
     assert not hasattr(world, 'function1')
 
+
 def test_world_should_be_able_to_absorb_lambdas():
     u"world should be able to absorb lambdas"
     assert not hasattr(world, 'named_func')
@@ -215,8 +224,9 @@ def test_world_should_be_able_to_absorb_lambdas():
 
     assert not hasattr(world, 'named_func')
 
+
 def test_world_should_be_able_to_absorb_classs():
-   u"world should be able to absorb classs"
+   u"world should be able to absorb class"
    assert not hasattr(world, 'MyClass')
 
    @world.absorb
@@ -231,3 +241,113 @@ def test_world_should_be_able_to_absorb_classs():
    world.spew('MyClass')
 
    assert not hasattr(world, 'MyClass')
+
+
+def test_hooks_should_be_still_manually_callable():
+    "terrain hooks should be still manually callable"
+
+    @before.all
+    def before_all():
+        pass
+
+    @before.harvest
+    def before_harvest():
+        pass
+
+    @before.each_app
+    def before_each_app():
+        pass
+
+    @before.each_step
+    def before_each_step():
+        pass
+
+    @before.each_scenario
+    def before_each_scenario():
+        pass
+
+    @before.each_feature
+    def before_each_feature():
+        pass
+
+    @before.handle_request
+    def before_handle_request():
+        pass
+
+    @before.outline
+    def before_outline():
+        pass
+
+    @after.all
+    def after_all():
+        pass
+
+    @after.harvest
+    def after_harvest():
+        pass
+
+    @after.each_app
+    def after_each_app():
+        pass
+
+    @after.each_step
+    def after_each_step():
+        pass
+
+    @after.each_scenario
+    def after_each_scenario():
+        pass
+
+    @after.each_feature
+    def after_each_feature():
+        pass
+
+    @after.handle_request
+    def after_handle_request():
+        pass
+
+    @after.outline
+    def after_outline():
+        pass
+
+    assert callable(before_all), \
+        '@before.all decorator should return the original function'
+
+    assert callable(before_handle_request), \
+        '@before.handle_request decorator should return the original function'
+
+    assert callable(before_harvest), \
+        '@before.harvest decorator should return the original function'
+
+    assert callable(before_each_feature), \
+        '@before.each_feature decorator should return the original function'
+
+    assert callable(before_outline), \
+        '@before.outline decorator should return the original function'
+
+    assert callable(before_each_scenario), \
+        '@before.each_scenario decorator should return the original function'
+
+    assert callable(before_each_step), \
+        '@before.each_step decorator should return the original function'
+
+    assert callable(after_all), \
+        '@after.all decorator should return the original function'
+
+    assert callable(after_handle_request), \
+        '@after.handle_request decorator should return the original function'
+
+    assert callable(after_harvest), \
+        '@after.harvest decorator should return the original function'
+
+    assert callable(after_each_feature), \
+        '@after.each_feature decorator should return the original function'
+
+    assert callable(after_outline), \
+        '@after.outline decorator should return the original function'
+
+    assert callable(after_each_scenario), \
+        '@after.each_scenario decorator should return the original function'
+
+    assert callable(after_each_step), \
+        '@after.each_step decorator should return the original function'
